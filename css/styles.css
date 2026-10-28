@@ -585,6 +585,70 @@ p { margin: 0 0 1.1em; }
 .js .reveal[data-delay="3"] { transition-delay: .3s; }
 .js .reveal[data-delay="4"] { transition-delay: .4s; }
 
+/* ---------- Instagram ---------- */
+.nav__ig {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: 38px; height: 38px;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--lilac-200);
+  color: var(--lilac-600);
+  transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease);
+}
+.nav__ig svg { width: 17px; height: 17px; fill: currentColor; }
+.nav__ig span { display: none; }
+.nav__ig:hover { background: var(--grad); color: #fff; border-color: transparent; }
+
+.cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; position: relative; z-index: 1; }
+.btn--outline-light { border: 1px solid rgba(255, 255, 255, .7); color: #fff; }
+.btn--outline-light:hover { background: rgba(255, 255, 255, .15); }
+
+/* Vídeo da Dra. (reel do Instagram) */
+.video {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 64px;
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 40px;
+  margin-bottom: 22px;
+  position: relative;
+  overflow: hidden;
+}
+.video::before {
+  content: "";
+  position: absolute;
+  width: 420px; height: 420px;
+  left: -140px; top: -140px;
+  border-radius: 50%;
+  background: var(--rose-100);
+  filter: blur(60px);
+  opacity: .8;
+}
+.video__player {
+  position: relative;
+  width: 340px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: var(--shadow);
+  border: 6px solid #fff;
+  outline: 1px solid var(--lilac-200);
+}
+.video__player iframe { display: block; width: 100%; height: 600px; border: 0; }
+.video__text { position: relative; }
+.video__title {
+  font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+  font-style: italic;
+  color: var(--plum);
+}
+.video__text > p:not(.eyebrow) { color: var(--muted); }
+.video__actions { margin-top: 26px; }
+
 /* ---------- Movimento ---------- */
 
 /* barra de leitura no topo */
@@ -698,6 +762,10 @@ p { margin: 0 0 1.1em; }
   .nav.is-open { opacity: 1; visibility: visible; }
   .nav a:not(.btn) { font-family: var(--serif); font-size: 1.7rem; color: var(--plum); }
   .nav__cta { margin-top: 10px; }
+  .nav .nav__ig { width: auto; height: auto; border: 0; font-size: 1rem; color: var(--lilac-600); }
+  .nav .nav__ig span { display: inline; font-family: var(--sans); font-size: 1rem; }
+  .video { grid-template-columns: 1fr; gap: 36px; padding: 28px 20px; }
+  .video__player { justify-self: center; width: min(340px, 100%); }
 }
 
 @media (max-width: 600px) {

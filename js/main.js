@@ -119,6 +119,20 @@
     });
   });
 
+  // O embed do Instagram informa a própria altura; ajusta o iframe para não cortar
+  var ig = document.getElementById('igVideo');
+  if (ig) {
+    window.addEventListener('message', function (e) {
+      if (!/instagram\.com$/.test(new URL(e.origin).hostname)) return;
+      try {
+        var data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+        if (data && data.type === 'MEASURE' && data.details && data.details.height) {
+          ig.style.height = data.details.height + 'px';
+        }
+      } catch (err) {}
+    });
+  }
+
   var ano = document.getElementById('ano');
   if (ano) ano.textContent = new Date().getFullYear();
 })();
