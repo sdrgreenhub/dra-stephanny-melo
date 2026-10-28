@@ -5,6 +5,6 @@ Landing page da Dra. Stephanny Melo (ninfoplastia e radiofrequência íntima), A
 - HTML, CSS e JS puros, sem build.
 - Publicado no GitHub Pages: https://sdrgreenhub.github.io/dra-stephanny-melo/
 
-Pendente: preencher CRM e RQE no rodapé (`index.html`, procurar "XXXXX").
+Responsável técnica: Dra. Stephanny Kelly Silva de Melo · CRM-DF 33656.
 
 Site por Delta Soluções.
