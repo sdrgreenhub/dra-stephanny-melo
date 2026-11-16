@@ -20,6 +20,7 @@
   --line: rgba(94, 66, 119, .12);
 
   --grad: linear-gradient(135deg, #E7A9C2 0%, #B79BDC 100%);
+  --grad-strong: linear-gradient(135deg, #8466AE 0%, #5E4277 100%); /* fundo de botao com texto branco (contraste AA) */
   --grad-soft: linear-gradient(160deg, var(--rose-50) 0%, var(--lilac-50) 100%);
 
   --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
@@ -112,18 +113,20 @@ p { margin: 0 0 1.1em; }
 .btn:hover { transform: translateY(-2px); }
 .btn--sm { padding: 10px 20px; font-size: .88rem; }
 .btn--primary {
-  background: var(--grad);
+  background: var(--grad-strong);
   color: #fff;
-  box-shadow: 0 12px 28px -12px rgba(132, 102, 174, .65);
+  font-weight: 600;
+  box-shadow: 0 12px 28px -12px rgba(94, 66, 119, .7);
 }
 .btn--primary:hover { box-shadow: 0 16px 34px -12px rgba(132, 102, 174, .8); }
 .btn--ghost {
-  border: 1px solid var(--lilac-200);
+  border: 1.5px solid var(--lilac-400);
   color: var(--plum);
-  background: rgba(255, 255, 255, .6);
+  font-weight: 600;
+  background: rgba(255, 255, 255, .85);
 }
 .btn--ghost:hover { background: #fff; }
-.btn--light { background: #fff; color: var(--plum); box-shadow: var(--shadow-sm); }
+.btn--light { background: #fff; color: var(--plum); font-weight: 600; box-shadow: var(--shadow-sm); }
 .icon { width: 18px; height: 18px; fill: currentColor; }
 
 /* brilho sutil que passa pelo botão */
@@ -386,7 +389,7 @@ p { margin: 0 0 1.1em; }
 .stat {
   border-radius: var(--radius);
   padding: 38px 34px;
-  background: var(--grad);
+  background: var(--grad-strong);
   color: #fff;
   display: flex; flex-direction: column; justify-content: center;
   position: relative;
@@ -516,7 +519,7 @@ p { margin: 0 0 1.1em; }
   text-align: center;
   padding: 84px 32px;
   border-radius: 32px;
-  background: var(--grad);
+  background: var(--grad-strong);
   color: #fff;
 }
 .cta__inner::before,
@@ -554,7 +557,7 @@ p { margin: 0 0 1.1em; }
   width: 58px; height: 58px;
   border-radius: 50%;
   display: grid; place-items: center;
-  background: var(--grad);
+  background: var(--grad-strong);
   box-shadow: 0 14px 30px -10px rgba(132, 102, 174, .75);
   z-index: 60;
   transition: transform .35s var(--ease);
@@ -599,10 +602,10 @@ p { margin: 0 0 1.1em; }
 }
 .nav__ig svg { width: 17px; height: 17px; fill: currentColor; }
 .nav__ig span { display: none; }
-.nav__ig:hover { background: var(--grad); color: #fff; border-color: transparent; }
+.nav__ig:hover { background: var(--grad-strong); color: #fff; border-color: transparent; }
 
 .cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; position: relative; z-index: 1; }
-.btn--outline-light { border: 1px solid rgba(255, 255, 255, .7); color: #fff; }
+.btn--outline-light { border: 1.5px solid rgba(255, 255, 255, .9); color: #fff; font-weight: 600; }
 .btn--outline-light:hover { background: rgba(255, 255, 255, .15); }
 
 /* Vídeo da Dra. (reel do Instagram) */
@@ -739,7 +742,7 @@ p { margin: 0 0 1.1em; }
 .pillar:hover { transform: translateY(-4px); background: #fff; box-shadow: var(--shadow-sm); }
 .card__icon { transition: transform .6s var(--ease); }
 .card:hover .card__icon { transform: rotate(-8deg) scale(1.08); }
-.timeline li:hover .timeline__n { background: var(--grad); color: #fff; border-color: transparent; }
+.timeline li:hover .timeline__n { background: var(--grad-strong); color: #fff; border-color: transparent; }
 .timeline__n { transition: background .4s var(--ease), color .4s var(--ease); }
 
 /* ---------- Responsivo ---------- */
