@@ -169,8 +169,7 @@
         '*WhatsApp:* ' + f.whats.value,
         '*Interesse:* ' + f.interesse.value,
         '*Melhor período:* ' + f.periodo.value
-      ].join('
-');
+      ].join('\n');
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'generate_lead', lead_interest: f.interesse.value });
       var url = 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(msg);
