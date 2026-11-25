@@ -813,3 +813,21 @@ p { margin: 0 0 1.1em; }
   .js .timeline::before { transform: none; }
   html { scroll-behavior: auto; }
 }
+
+/* ---------- Formulario de agendamento (abre o WhatsApp com os dados) ---------- */
+.agendar { background: var(--grad-soft); }
+.agendar__grid { display: grid; gap: 32px; align-items: start; }
+@media (min-width: 900px) { .agendar__grid { grid-template-columns: 1fr 1fr; gap: 56px; } }
+.agendar__text h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.1; color: var(--plum); margin: 8px 0 16px; }
+.agendar__text h2 em { color: var(--lilac-600); }
+.agendar__text p { color: var(--muted); max-width: 46ch; }
+.aform { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; display: grid; gap: 18px; }
+.afield { display: grid; gap: 6px; }
+.afield label { font-size: .85rem; font-weight: 500; color: var(--plum); }
+.afield input, .afield select { font: inherit; color: var(--ink); background: var(--cream); border: 1px solid var(--lilac-200); border-radius: 14px; padding: 14px 16px; width: 100%; }
+.afield input:focus, .afield select:focus { outline: 2px solid var(--lilac-600); outline-offset: 1px; }
+.afield__error { display: none; font-size: .8rem; color: #A3294F; }
+.afield.is-invalid input, .afield.is-invalid select { border-color: #A3294F; }
+.afield.is-invalid .afield__error { display: block; }
+.btn--block { width: 100%; justify-content: center; }
+.aform__privacy { font-size: .78rem; color: var(--muted); text-align: center; margin: 0; }

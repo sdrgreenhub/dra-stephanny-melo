@@ -133,6 +133,52 @@
     });
   }
 
+  /* ---------- Formulario -> WhatsApp com os dados ---------- */
+  var leadForm = document.getElementById('lead-form');
+  if (leadForm) {
+    var WHATS = '5561998272019';
+    var rules = {
+      nome: function (v) { return v.trim().length >= 2; },
+      whats: function (v) { return v.replace(/\D/g, '').length >= 10; },
+      interesse: function (v) { return v !== ''; }
+    };
+    var check = function (el) {
+      var ok = rules[el.name] ? rules[el.name](el.value) : true;
+      el.closest('.afield').classList.toggle('is-invalid', !ok);
+      return ok;
+    };
+    Object.keys(rules).forEach(function (n) {
+      var el = leadForm.elements[n];
+      el.addEventListener('blur', function () { if (el.value) check(el); });
+      el.addEventListener('input', function () { if (el.closest('.afield').classList.contains('is-invalid')) check(el); });
+    });
+    leadForm.elements.whats.addEventListener('input', function (e) {
+      var d = e.target.value.replace(/\D/g, '').slice(0, 11), o = d;
+      if (d.length > 2) o = '(' + d.slice(0, 2) + ') ' + d.slice(2, d.length > 10 ? 7 : 6) + (d.length > (d.length > 10 ? 7 : 6) ? '-' + d.slice(d.length > 10 ? 7 : 6) : '');
+      e.target.value = o;
+    });
+    leadForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var bad = Object.keys(rules).map(function (n) { return leadForm.elements[n]; }).filter(function (el) { return !check(el); });
+      if (bad.length) { bad[0].focus(); return; }
+      var f = leadForm.elements;
+      var msg = [
+        'Olá, Dra. Stephanny! Vim pelo site e gostaria de agendar uma avaliação.',
+        '',
+        '*Nome:* ' + f.nome.value.trim(),
+        '*WhatsApp:* ' + f.whats.value,
+        '*Interesse:* ' + f.interesse.value,
+        '*Melhor período:* ' + f.periodo.value
+      ].join('
+');
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'generate_lead', lead_interest: f.interesse.value });
+      var url = 'https://wa.me/' + WHATS + '?text=' + encodeURIComponent(msg);
+      var w = window.open(url, '_blank');
+      if (w) { w.opener = null; } else { location.href = url; }
+    });
+  }
+
   var ano = document.getElementById('ano');
   if (ano) ano.textContent = new Date().getFullYear();
 })();
